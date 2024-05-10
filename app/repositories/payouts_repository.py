@@ -11,7 +11,7 @@ class PayoutState(Enum):
 class Payout(Base):
     __tablename__ = "payout"
     payout_id = Column(Integer, primary_key=True)
-    owner_id = Column(Integer)
+    owner_id = Column(Integer, index=True)
     pay_date = Column(DATETIME)
     amount = Column(FLOAT)
     state = Column(Integer, nullable=False)
