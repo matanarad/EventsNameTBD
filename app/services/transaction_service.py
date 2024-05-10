@@ -4,13 +4,12 @@ from app.repositories.transaction_repository import Transaction
 from app.schemes.transaction_scheme import TransactionCreate
 from sqlalchemy.orm import Session, Query
 
+from app.services.template_service import TemplateService
 
-class TransactionsService:
+
+class TransactionsService(TemplateService[Transaction]):
     def __init__(self):
-        self.db = Session()
-
-    def get_transactions(self):
-        return self.db.query(Transaction).all()
+        super().__init__()
 
     def get_transaction_by_id(self, transaction_id: int) -> Type[Transaction]:
         query: Query[Type[Transaction]] = self.db.query(Transaction).filter(Transaction.id == transaction_id)
@@ -32,10 +31,7 @@ class TransactionsService:
                                      method=transaction.method,
                                      date=transaction.date,
                                      ticket_type=transaction.ticket_type)
-        self.db.add(db_transaction)
-        self.db.commit()
-        self.db.refresh(db_transaction)
-        return db_transaction
+        return super().add_row(db_transaction)
 
     def get_purchase_list(self, transaction_id):
         pass
