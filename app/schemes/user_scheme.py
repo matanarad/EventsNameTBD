@@ -13,7 +13,7 @@ class UserCreate(UserBase):
     password: str
 
 
-class User(UserBase):
+class UserScheme(UserBase):
     id: int
 
     class Config:
