@@ -16,3 +16,9 @@ class TemplateService(Generic[T, TCS, TSS]):
     def get_all_records(self) -> List[Type[T]]:
         return self.db.query(T).all()
 
+
+    def add_row(self, row):
+        pass
+
+    def remove_row(self, row):
+        pass
