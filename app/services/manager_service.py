@@ -1,10 +1,6 @@
 from typing import Type, List
 from sqlalchemy.orm import Session, Query
 from template_service import TemplateService
-
-from app.repositories.transaction_repository import Transaction
-from app.schemes.transaction_scheme import TransactionCreate
-
 from app.repositories.manager_repository import Manager
 
 
