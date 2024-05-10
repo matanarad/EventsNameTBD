@@ -11,17 +11,14 @@ class UserService(TemplateService[User]):
     def __init__(self):
         super().__init__()
 
-    def get_user_by_id(self, user_id: int) -> Type[User]:
-        query: Query[Type[User]] = self.db.query(User).filter(User.id == user_id)
-        return query.first()
+    def get_user_by_id(self, user_id: int) -> User:
+        return self.get_record_by(User.id, user_id)
 
-    def get_user_by_email(self, email: str) -> Type[User]:
-        query: Query[Type[User]] = self.db.query(User).filter(User.email == email)
-        return query.first()
+    def get_user_by_email(self, email: str) -> User:
+        return self.get_record_by(User.email, email)
 
-    def get_user_by_phone_number(self, phone_number: str) -> Type[User]:
-        query: Query[Type[User]] = self.db.query(User).filter(User.phone_number == phone_number)
-        return query.first()
+    def get_user_by_phone_number(self, phone_number: str) -> User:
+        return self.get_record_by(User.phone_number, phone_number)
 
     def create_user(self, user: UserCreate):
         db_user = User(email=user.email, phone_number=user.phone_number, instagram=user.instagram,
@@ -30,3 +27,4 @@ class UserService(TemplateService[User]):
 
     def get_purchase_list(self, user_id):
         pass
+

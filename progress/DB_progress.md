@@ -1,8 +1,8 @@
 ### DBs:
 - [ ] Event : event_id, event_info
   - [x] Create Repository
-  - [ ] Create Schemes
-  - [ ] Create Service 
+  - [x] Create Schemes
+  - [x] Create Service 
   - [ ] Create Routes
 - [ ] User : user_id, is_manager, personal_event_info
   - [x] Create Repository
