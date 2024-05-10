@@ -11,5 +11,9 @@ class TemplateService:
         self.table = ""
     def get_full_table(self):
         return self.db.query(self.table).all()
+
     def add_row(self, row):
+        pass
+
+    def remove_row(self, row):
         pass
