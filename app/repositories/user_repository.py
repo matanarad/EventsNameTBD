@@ -12,5 +12,4 @@ class User(Base):
     instagram = Column(String)
     birth_date = Column(Date)
     hashed_password = Column(String)
-    is_manager = Column(Boolean, default=True)
 
