@@ -4,7 +4,7 @@ from template_service import TemplateService
 from app.repositories.manager_repository import Manager
 
 
-class ManagerService(TemplateService):
+class ManagerService(TemplateService[Manager]):
     def __init__(self):
         super().__init__()
 

@@ -5,7 +5,7 @@ from template_service import TemplateService
 from app.repositories.bankinfo_repository import BankInfo
 
 
-class BankInfoService(TemplateService):
+class BankInfoService(TemplateService[BankInfo]):
     def __init__(self):
         super().__init__()
 
