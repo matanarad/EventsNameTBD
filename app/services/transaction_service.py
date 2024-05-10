@@ -1,6 +1,6 @@
 from typing import Type, List
 
-from app.repositories.transactions_repository import Transaction
+from app.repositories.transaction_repository import Transaction
 from app.schemes.transaction_scheme import TransactionCreate
 from sqlalchemy.orm import Session, Query
 
