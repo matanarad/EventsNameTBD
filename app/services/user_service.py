@@ -24,9 +24,6 @@ class UserService:
         query: Query[Type[User]] = self.db.query(User).filter(User.phone_number == phone_number)
         return query.first()
 
-    def is_user_manager(self, user_id: int) -> bool:
-        query: Query[Type[User]] = self.db.query(User).filter(User.id == user_id)
-        return query.first().is_manager
 
     def create_user(self, user: UserCreate):
         db_user = User(email=user.email, phone_number=user.phone_number, instagram=user.instagram,
