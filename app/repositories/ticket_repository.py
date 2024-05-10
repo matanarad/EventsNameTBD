@@ -4,8 +4,8 @@ from sqlalchemy.orm import relationship
 from .database import Base
 
 
-class Tickets(Base):
-    __tablename__ = "tickets"
+class Ticket(Base):
+    __tablename__ = "ticket"
     ticket_id = Column(Integer, primary_key=True, index=True)
     event_id = Column(Integer, nullable=False, index=True)
     from_date = Column(DATETIME, nullable=False)
