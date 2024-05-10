@@ -1,3 +1,5 @@
+import datetime
+
 from pydantic import BaseModel
 
 
@@ -5,7 +7,7 @@ class UserBase(BaseModel):
     email: str
     phone_number: str
     instagram: str
-    birth_date: str
+    birth_date: datetime.date
     is_manager: bool
 
 
