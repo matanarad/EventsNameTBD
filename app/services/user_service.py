@@ -19,10 +19,13 @@ class UserService:
         query: Query[Type[User]] = self.db.query(User).filter(User.email == email)
         return query.first()
 
+    def get_user_by_phone_number(self, phone_number: str) -> Type[User]:
+        query: Query[Type[User]] = self.db.query(User).filter(User.phone_number == phone_number)
+        return query.first()
+
     def is_user_manager(self, user_id: int) -> bool:
         query: Query[Type[User]] = self.db.query(User).filter(User.id == user_id)
         return query.first().is_manager
 
     def get_purchase_list(self, user_id):
         pass
-
