@@ -19,13 +19,11 @@ class ManagerService(TemplateService):
     def get_managers_by_event(self):
         pass
 
-    def add_manager(self, manager:AddManager):
+    def add_manager(self, manager):
         # slika
-        manager_row = Manager(user_id=transaction.user_id,
-                              event_id=transaction.event_id,)
-        self.db.add(manager_row)
-        self.db.commit()
-        self.db.refresh(manager_row)
+        manager_row = Manager(user_id=manager.user_id,
+                              event_id=manager.event_id,)
+        super().add_row(manager_row)
         return manager_row
 
     def get_purchase_list(self, transaction_id):
