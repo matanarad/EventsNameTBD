@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Date
 from sqlalchemy.orm import relationship
 
-from .database import Base
+from app.config.database import Base
 
 
 class Manager(Base):
