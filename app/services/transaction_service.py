@@ -29,6 +29,3 @@ class TransactionsService(TemplateService[Transaction]):
                                      date=transaction.date,
                                      ticket_type=transaction.ticket_type)
         return super().add_row(db_transaction)
-
-    def get_purchase_list(self, transaction_id):
-        pass
