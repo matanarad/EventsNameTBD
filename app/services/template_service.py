@@ -1,17 +1,17 @@
 from typing import Type, List, Generic, TypeVar
 
 from sqlalchemy import ColumnElement
-from sqlalchemy.orm import Session, Query
-
-from app.repositories.transaction_repository import Transaction
-from app.schemes.transaction_scheme import TransactionCreate
+from sqlalchemy.orm import Session
 
 T = TypeVar('T')
 
 
 class TemplateService(Generic[T]):
     def __init__(self):
-        self.db = Session()
+        self.db: Session = None
+
+    def start_session(self, session):
+        self.db = session
 
     def get_all_records(self) -> List[Type[T]]:
         return self.db.query(T).all()
