@@ -11,8 +11,14 @@ class TicketService(TemplateService[Ticket]):
         return self.get_record_by(Ticket.ticket_id, ticket_id)
 
     def get_tickets_by_event(self, event_id: str) -> list[OutTicket]:
-        # need to append relations between ticket and transaction and add a number of sold tickets to the return
-        return self.get_multiple_records_by(Ticket.event_id, event_id)
+        event_tickets = self.get_multiple_records_by(Ticket.event_id, event_id)
+        return [OutTicket(ticket_id=ticket.ticket_id,
+                          event_id=ticket.event_id,
+                          from_date=ticket.from_date,
+                          to_date=ticket.to_date,
+                          title=ticket.title,
+                          descriptio=ticket.description,
+                          max_buyers=len(ticket.buyers)) for ticket in event_tickets]
 
     def get_tickets_by_title(self, title: str) -> list[Ticket]:
         return self.get_multiple_records_by(Ticket.title, title)
