@@ -1,4 +1,10 @@
 SQLAlchemy~=2.0.30
+<<<<<<< HEAD
 pydantic==2.7.1
 typing~=3.7.4.3
 fastapi~=0.111.0
+=======
+pydantic~=1.10.8
+typing~=3.7.4.3
+fastapi~=0.95.2
+>>>>>>> f690a0e7e724dd83f68a80ac13e371b1dbff2f76
