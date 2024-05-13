@@ -4,11 +4,16 @@ from pydantic import BaseModel
 
 
 class EventBase(BaseModel):
-    email: str
-    phone_number: str
-    instagram: str
-    birth_date: datetime.date
-    is_manager: bool
+    creation_date: datetime.datetime
+    event_date: datetime.datetime
+    title: str
+    description: str
+    location: str
+    eventphoto_id: int
+    owner_id: int
+    payed_out: bool
+    visits: int
+    public: bool
 
 
 class EventCreate(EventBase):
