@@ -27,4 +27,4 @@ async def is_authenticated(scopes: SecurityScopes, token: str = Depends(oauth2_s
             detail="Unauthorized To Access This Page",
             headers={"WWW-Authenticate": authenticate_value},
         )
-    return token_json['sub'], token_json['scopes']
+    return True
