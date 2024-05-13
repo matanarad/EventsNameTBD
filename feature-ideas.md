@@ -9,3 +9,4 @@
     b. when free
     c. price
     d. reviews
+5. search parties (public, private)

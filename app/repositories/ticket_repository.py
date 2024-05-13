@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DATETIME
-
+from sqlalchemy.orm import relationship
 from app.config.database import Base
 
 
@@ -12,3 +12,6 @@ class Ticket(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
     max_buyers = Column(Integer, nullable=True)
+
+    matched_event = relationship("Event", back_populates="tickets")
+    buyers = relationship("Transaction", back_populates="ticket")

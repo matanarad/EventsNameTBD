@@ -1,7 +1,6 @@
 from enum import Enum
-
 from sqlalchemy import Column, ForeignKey, Integer, String, Date
-
+from sqlalchemy.orm import relationship
 from app.config.database import Base
 
 
@@ -23,3 +22,10 @@ class Transaction(Base):
     state = Column(Integer, index=True)
     method = Column(String, nullable=False)
     date = Column(Date, nullable=False)
+
+    event = relationship("Event", back_populates="transactions")
+    user = relationship("User", back_populates="tickets")
+    ticket = relationship("Ticket", back_populates="buyers")
+
+
+

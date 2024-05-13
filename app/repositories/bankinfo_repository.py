@@ -9,3 +9,6 @@ class BankInfo(Base):
     id = Column(Integer, primary_key=True)
     bank_info = Column(String, nullable=False)
 
+    owner = relationship("User", back_populates="owner")
+
+
