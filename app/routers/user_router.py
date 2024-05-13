@@ -7,7 +7,7 @@ from app.dependencies import get_db
 from app.schemes.user_scheme import UserScheme, UserCreate
 from app.services.user_service import UserService
 
-router = APIRouter(prefix='/users')
+router = APIRouter(prefix='/api/users')
 
 user_service = UserService()
 

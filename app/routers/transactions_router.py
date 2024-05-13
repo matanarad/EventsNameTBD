@@ -7,7 +7,7 @@ from app.dependencies import get_db
 from app.schemes.transaction_scheme import TransactionCreate, TransactionScheme
 from app.services.transaction_service import TransactionsService
 
-router = APIRouter(prefix='/transactions')
+router = APIRouter(prefix='/api/transactions')
 
 transaction_service = TransactionsService()
 

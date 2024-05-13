@@ -7,7 +7,7 @@ from app.dependencies import get_db
 from app.schemes.event_scheme import EventCreate, EventScheme
 from app.services.event_service import EventService
 
-router = APIRouter(prefix='/events')
+router = APIRouter(prefix='/api/events')
 
 event_service = EventService()
 
