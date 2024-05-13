@@ -25,7 +25,8 @@ async def create_transaction(new_transaction: TransactionCreate, db: Session = D
 
 
 @router.get('/by', response_model=TransactionScheme)
-async def get_transaction_by(transaction_id, event_id, user_id, db: Session = Depends(get_db)):
+async def get_transaction_by(db: Session = Depends(get_db), transaction_id: int = 0, event_id: int = 0,
+                             user_id: int = 0):
     transaction_service.start_session(db)
     if transaction_id:
         return transaction_service.get_transaction_by_id(transaction_id)
@@ -34,4 +35,3 @@ async def get_transaction_by(transaction_id, event_id, user_id, db: Session = De
     if user_id:
         return transaction_service.get_transactions_by_user_id(user_id)
     return None
-

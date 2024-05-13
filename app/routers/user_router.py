@@ -25,7 +25,7 @@ async def create_user(new_user: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.get('/by', response_model=UserScheme)
-async def get_user_by(user_id, email, phone_number, db: Session = Depends(get_db)):
+async def get_user_by(db: Session = Depends(get_db), user_id: int = 0, email: str = '', phone_number: str = ''):
     user_service.start_session(db)
     if user_id:
         return user_service.get_user_by_id(user_id)
