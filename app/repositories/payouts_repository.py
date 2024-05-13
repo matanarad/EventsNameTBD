@@ -20,7 +20,7 @@ class Payout(Base):
     state = Column(Integer, nullable=False)
     statedescription = Column(String) #bank approval code/fail reason
 
-    owner: List[User] = relationship("User", back_populates="payouts")
+    owner: User = relationship("User", back_populates="payouts")
 
 
 

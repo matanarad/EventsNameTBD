@@ -1,6 +1,13 @@
+from typing import List
+
 from sqlalchemy import Column, Integer, String, DATETIME, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
+
 from app.config.database import Base
+from app.repositories.manager_repository import Manager
+from app.repositories.ticket_repository import Ticket
+from app.repositories.transaction_repository import Transaction
+from app.repositories.user_repository import User
 
 
 class Event(Base):
@@ -17,7 +24,7 @@ class Event(Base):
     visits = Column(Integer, default=0)
     public = Column(Boolean, default=True)
 
-    owner = relationship("User", back_populates="owned")
-    managers = relationship("Manager", back_populates="event")
-    tickets = relationship("Ticket", back_populates="matched_event")
-    transactions = relationship("Transaction", back_populates="event")
+    owner: User = relationship("User", back_populates="owned")
+    managers: List[Manager] = relationship("Manager", back_populates="event")
+    tickets: List[Ticket] = relationship("Ticket", back_populates="matched_event")
+    transactions: List[Transaction] = relationship("Transaction", back_populates="event")

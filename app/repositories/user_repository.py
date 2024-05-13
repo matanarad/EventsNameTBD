@@ -24,4 +24,3 @@ class User(Base):
     managed: Manager = relationship("Manager", back_populates="userinfo")
     owned: Event = relationship("Event", back_populates="owner")
     payouts: List[Payout] = relationship("Payout", back_populates="owner")
-    tickets: List[Transaction] = relationship("Transaction", back_populates="user")
