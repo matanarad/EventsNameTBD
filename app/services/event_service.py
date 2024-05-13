@@ -20,9 +20,16 @@ class EventService(TemplateService[Event]):
         return self.get_multiple_records_by(Event.description, description)
 
     def create_event(self, event: EventCreate):
-        db_event = Event(email=event.email, phone_number=event.phone_number, instagram=event.instagram,
-                         is_manager=event.is_manager, birth_date=event.birth_date)
+        db_event = Event(creation_date=event.creation_date,
+                         event_date=event.event_date,
+                         title=event.title,
+                         description=event.description,
+                         location=event.location,
+                         eventphoto_id=event.eventphoto_id,
+                         owner_id=event.owner_id,
+                         payed_out=event.payed_out,
+                         visits=event.visits)
         return super().add_row(db_event)
 
-    def get_purchase_list(self, event_id):
-        pass
+    def get_top_trending(self):
+        return self.db.query(Event).limit(50).order_by(Event.visits).all()
