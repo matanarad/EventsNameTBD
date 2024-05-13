@@ -10,6 +10,9 @@ class EventService(TemplateService[Event]):
     def get_event_by_id(self, event_id: int) -> Event:
         return self.get_record_by(Event.id, event_id)
 
+    def get_events_by_owner(self, owner: str) -> list[Event]:
+        return self.get_multiple_records_by(Event.location, owner)
+
     def get_events_by_location(self, location: str) -> list[Event]:
         return self.get_multiple_records_by(Event.location, location)
 

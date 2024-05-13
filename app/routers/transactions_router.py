@@ -34,8 +34,3 @@ async def get_transaction_by(transaction_id, event_id, user_id, db: Depends(get_
         return transaction_service.get_transactions_by_user_id(user_id)
     return None
 
-
-@router.get('/purchases/{transaction_id}', response_model=TransactionScheme)
-async def get_transaction_purchases(transaction_id, db: Depends(get_db)):
-    transaction_service.start_session(db)
-    return transaction_service.get_purchase_list(transaction_id)
