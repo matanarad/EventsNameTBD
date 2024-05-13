@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
 from app.dependencies import get_db
 from app.schemes.transaction_scheme import TransactionCreate, TransactionScheme
@@ -12,19 +13,19 @@ transaction_service = TransactionsService()
 
 
 @router.get('/', response_model=List[TransactionScheme])
-async def get_transactions(db: Depends(get_db)):
+async def get_transactions(db: Session = Depends(get_db)):
     transaction_service.start_session(db)
     return transaction_service.get_all_records()
 
 
 @router.post('/', response_model=TransactionScheme)
-async def create_transaction(new_transaction: TransactionCreate, db: Depends(get_db)):
+async def create_transaction(new_transaction: TransactionCreate, db: Session = Depends(get_db)):
     transaction_service.start_session(db)
     return transaction_service.create_transaction(new_transaction)
 
 
 @router.get('/by', response_model=TransactionScheme)
-async def get_transaction_by(transaction_id, event_id, user_id, db: Depends(get_db)):
+async def get_transaction_by(transaction_id, event_id, user_id, db: Session = Depends(get_db)):
     transaction_service.start_session(db)
     if transaction_id:
         return transaction_service.get_transaction_by_id(transaction_id)
