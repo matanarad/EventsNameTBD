@@ -1,10 +1,14 @@
 import json
+from enum import Enum
 
 from fastapi import Depends, HTTPException, status
-from fastapi.security import SecurityScopes
+from fastapi.security import SecurityScopes, OAuth2PasswordBearer
 
 from app.config.database import SessionLocal
-from app.routers.auth_router import oauth2_scheme
+from app.services.auth_service import Scopes
+
+oauth2_scheme = OAuth2PasswordBearer(
+    tokenUrl="api/login", scopes={'admin': Scopes.ADMIN.value, 'user': Scopes.USER.value, 'guest': Scopes.GUEST.value})
 
 
 def get_db():

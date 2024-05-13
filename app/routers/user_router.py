@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, Security
 from sqlalchemy.orm import Session
 
 from app.dependencies import get_db, is_authenticated
-from app.routers.auth_router import Scopes
 from app.schemes.user_scheme import UserScheme, UserCreate
+from app.services.auth_service import Scopes
 from app.services.user_service import UserService
 
 router = APIRouter(prefix='/api/users')
