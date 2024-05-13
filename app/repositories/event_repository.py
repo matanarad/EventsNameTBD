@@ -14,3 +14,4 @@ class Event(Base):
     eventphoto_id = Column(Integer, nullable=False, default=0)
     owner_id = Column(Integer, nullable=False, index=True)
     payed_out = Column(Boolean, default=False)
+    visits = Column(Integer, default=0)

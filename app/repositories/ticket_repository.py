@@ -11,3 +11,4 @@ class Ticket(Base):
     to_date = Column(DATETIME, nullable=False)
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
+    max_buyers = Column(Integer, nullable=True)
