@@ -1,6 +1,11 @@
+from typing import List
+
 from sqlalchemy import Column, Integer, String, DATETIME
 from sqlalchemy.orm import relationship
+
 from app.config.database import Base
+from app.repositories.event_repository import Event
+from app.repositories.transaction_repository import Transaction
 
 
 class Ticket(Base):
@@ -13,5 +18,5 @@ class Ticket(Base):
     description = Column(String, nullable=True)
     max_buyers = Column(Integer, nullable=True)
 
-    matched_event = relationship("Event", back_populates="tickets")
-    buyers = relationship("Transaction", back_populates="ticket")
+    matched_event: Event = relationship("Event", back_populates="tickets")
+    buyers: List[Transaction] = relationship("Transaction", back_populates="ticket")

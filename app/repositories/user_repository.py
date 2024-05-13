@@ -1,6 +1,13 @@
 from sqlalchemy import Boolean, Column, Integer, String, Date
 from sqlalchemy.orm import relationship
+from typing import List
+
 from app.config.database import Base
+from app.repositories.bankinfo_repository import BankInfo
+from app.repositories.event_repository import Event
+from app.repositories.manager_repository import Manager
+from app.repositories.payouts_repository import Payout
+from app.repositories.transaction_repository import Transaction
 
 
 class User(Base):
@@ -13,8 +20,8 @@ class User(Base):
     birth_date = Column(Date)
     hashed_password = Column(String)
 
-    binfo = relationship("BankInfo", back_populates="owner")
-    managed = relationship("Manager", back_populates="userinfo")
-    owned = relationship("Event", back_populates="owner")
-    payouts = relationship("Payout", back_populates="owner")
-    tickets = relationship("Transaction", back_populates="user")
+    binfo: BankInfo = relationship("BankInfo", back_populates="owner")
+    managed: Manager = relationship("Manager", back_populates="userinfo")
+    owned: Event = relationship("Event", back_populates="owner")
+    payouts: List[Payout] = relationship("Payout", back_populates="owner")
+    tickets: List[Transaction] = relationship("Transaction", back_populates="user")

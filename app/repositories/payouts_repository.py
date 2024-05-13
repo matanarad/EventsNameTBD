@@ -1,8 +1,11 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DATETIME, FLOAT
 from sqlalchemy.orm import relationship
+from typing import List
 
 from app.config.database import Base
 from enum import Enum
+
+from app.repositories.user_repository import User
 
 
 class PayoutState(Enum):
@@ -17,7 +20,7 @@ class Payout(Base):
     state = Column(Integer, nullable=False)
     statedescription = Column(String) #bank approval code/fail reason
 
-    owner = relationship("User", back_populates="payouts")
+    owner: List[User] = relationship("User", back_populates="payouts")
 
 
 
