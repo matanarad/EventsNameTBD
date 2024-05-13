@@ -8,7 +8,6 @@ class UserBase(BaseModel):
     phone_number: str
     instagram: str
     birth_date: datetime.date
-    is_manager: bool
 
 
 class UserCreate(UserBase):
