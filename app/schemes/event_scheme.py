@@ -13,6 +13,7 @@ class EventBase(BaseModel):
     owner_id: int
     payed_out: bool
     visits: int
+    min_age: int
     public: bool
 
 
