@@ -22,6 +22,7 @@ class Event(Base):
     owner_id = Column(Integer, ForeignKey("user.id"), nullable=False, index=True)
     payed_out = Column(Boolean, default=False)
     visits = Column(Integer, default=0)
+    min_age = Column(Integer, default=18)
     public = Column(Boolean, default=True)
 
     owner: User = relationship("User", back_populates="owned")
