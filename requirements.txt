@@ -1,6 +1,0 @@
-SQLAlchemy~=2.0.30
-pydantic==1.10.7
-typing~=3.7.4.3
-fastapi~=0.111.0
-postgres
-uvicorn~=0.29.0
