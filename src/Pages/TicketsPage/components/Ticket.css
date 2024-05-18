@@ -1,0 +1,29 @@
+.ticket {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin: 3vw;
+  padding: 1vw;
+  border: 1px solid;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.quantity {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.plus-minus-button {
+  background: rgb(255, 255, 255);
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 8vw;
+  height: 8vw;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}

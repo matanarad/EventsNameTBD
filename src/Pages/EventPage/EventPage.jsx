@@ -5,6 +5,9 @@ import { useState } from "react";
 import addressIcon from "../../img/pointonmap.svg";
 import dateIcon from "../../img/calendar.svg";
 import ownerIcon from "../../img/ownerIcon.svg";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 function EventPage() {
   const [eventImage, setEventImage] = useState("");
   const [eventTitle, setEventTitle] = useState("");
@@ -12,6 +15,7 @@ function EventPage() {
   const [eventAddress, setEventAddress] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventDescription, setEventDescription] = useState("");
+  const { eventId } = useParams();
 
   useEffect(() => {
     // ToDo Get From BE
@@ -38,24 +42,26 @@ function EventPage() {
       <div className="event-title">{eventTitle}</div>
       <div className="event-address-and-date">
         <div className="event-address">
-          <img className="address-and-date-icon" src={addressIcon} alt="None" />
+          <img className="icon" src={addressIcon} alt="None" />
           <div>{eventAddress}</div>
         </div>
         <div className="event-date">
-          <img className="address-and-date-icon" src={dateIcon} alt="None" />
+          <img className="icon" src={dateIcon} alt="None" />
           <div>{eventDate}</div>
         </div>
         <div className="event-owner">
-          <img className="address-and-date-icon" src={ownerIcon} alt="None" />
+          <img className="icon" src={ownerIcon} alt="None" />
           <div>{eventOwner.name}</div>
         </div>
       </div>
       <div className="event-description">
-        {eventDescription.split("\n").map((line) => {
-          return <p>{line}</p>;
+        {eventDescription.split("\n").map((line, index) => {
+          return <p key={index}>{line}</p>;
         })}
       </div>
-      <button className="order-ticket-button">ORDER TICKET</button>
+      <Link to={`/tickets/${eventId}`}>
+        <button className="order-ticket-button">ORDER TICKET</button>
+      </Link>
     </div>
   );
 }

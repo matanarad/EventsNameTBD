@@ -35,9 +35,6 @@
   gap: 3vw;
 }
 
-.address-and-date-icon {
-  width: 5vw;
-}
 .event-address-and-date {
   border-bottom: 1px solid;
 }
@@ -54,7 +51,7 @@
   width: 80vw;
   transform: translateX(-50%);
   padding: 10px 20px;
-  background-color: #248dff;
+  background-color: #3d4350;
   color: white;
   border: none;
   border-radius: 5px;
