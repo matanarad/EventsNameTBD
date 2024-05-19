@@ -1,3 +1,7 @@
+.EventPage {
+  padding: 2vh;
+}
+
 .event-image {
   width: 100%;
   border-radius: 15px;

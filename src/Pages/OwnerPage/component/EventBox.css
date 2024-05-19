@@ -1,0 +1,33 @@
+.EventBox {
+  text-align: center;
+  justify-items: center;
+  display: grid;
+}
+.PendingList {
+  width: 90%;
+  background: #3d4350;
+  /* height: 20vh; */
+  border-radius: 0 0 10px 10px;
+}
+
+.AcceptBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(2, max-content);
+  gap: 5vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  text-align: center;
+  justify-items: center;
+  padding: 1vh 0 1vh 0;
+  border-top: 1px solid white;
+}
+
+.pending-icon {
+  width: 5vw;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  justify-items: center;
+}

@@ -1,3 +1,7 @@
+.TicketsPage {
+  padding: 2vh;
+}
+
 .return-bar {
   display: grid;
   grid-template-columns: max-content 1fr;

@@ -1,0 +1,14 @@
+.OwnerPage {
+  padding: 2vh;
+}
+
+.Heder {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  /* padding: 2vh 2vh 0 0; */
+}
+.add-icon {
+  width: 10vw;
+}

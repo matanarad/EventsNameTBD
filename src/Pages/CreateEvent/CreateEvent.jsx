@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "./CreateEvent.css";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import backIcon from "../../img/backIcon.svg";
 
 function CreateEvent() {
+  const { ownerId } = useParams();
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -52,8 +57,13 @@ function CreateEvent() {
   return (
     <div className="CreateEvent">
       <form onSubmit={handleSubmit(onSubmit)}>
+        <Link to={`/ownerPage/${ownerId}`}>
+          <button className="return-bar">
+            <img className="icon" src={backIcon} alt="None" />
+            {/* <div>Return to event page</div> */}
+          </button>
+        </Link>
         <div className="title">Create New Event</div>
-
         {questionsList.map((question) => {
           return (
             <div className="input-container ic2" key={question.name}>
@@ -77,11 +87,11 @@ function CreateEvent() {
             type="file"
             onChange={handleFileChange}
           />
-          <div className="cut">{"Choose File"}</div>
-          <label className="placeholder">{"Choose File"}</label>
+          <div className="cut">{"Choose Event Image"}</div>
+          <label className="placeholder">{"Choose Event Image"}</label>
 
           <label htmlFor="file" className="custom-file-label">
-            {selectedFile ? selectedFile.name : "Choose File"}
+            {selectedFile ? selectedFile.name : "Choose Event Image"}
           </label>
         </div>
         <button type="submit" className="submit">
