@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import backIcon from "../../img/backIcon.svg";
 
 function CreateEvent() {
-  const { ownerId } = useParams();
+  const { userID } = useParams();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -57,7 +57,7 @@ function CreateEvent() {
   return (
     <div className="CreateEvent">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Link to={`/ownerPage/${ownerId}`}>
+        <Link to={`/MyEventsPage/${userID}`}>
           <button className="return-bar">
             <img className="icon" src={backIcon} alt="None" />
             {/* <div>Return to event page</div> */}

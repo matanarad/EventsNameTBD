@@ -3,16 +3,16 @@ import "./App.css";
 import EventPage from "./Pages/EventPage/EventPage";
 import TicketsPage from "./Pages/TicketsPage/TicketsPage";
 import CreateEvent from "./Pages/CreateEvent/CreateEvent";
-import OwnerPage from "./Pages/OwnerPage/OwnerPage";
+import MyEventsPage from "./Pages/MyEventsPage/MyEventsPage";
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/event/:eventId" element={<EventPage />} />
-          <Route path="tickets/:eventId" element={<TicketsPage />} />
-          <Route path="createEvent/:ownerId" element={<CreateEvent />} />
-          <Route path="ownerPage/:ownerId" element={<OwnerPage />} />
+          <Route exact path="/event/:userID/:eventId" element={<EventPage />} />
+          <Route path="tickets/:userID/:eventId" element={<TicketsPage />} />
+          <Route path="createEvent/:userID" element={<CreateEvent />} />
+          <Route path="myEventsPage/:userID" element={<MyEventsPage />} />
         </Routes>
       </Router>
     </div>

@@ -15,7 +15,7 @@ function TicketsPage() {
   const [eventAddress, setEventAddress] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [ticketsList, setTicketsList] = useState([]);
-  const { eventId } = useParams();
+  const { eventId, userID } = useParams();
 
   function calculateTotalPrice(tickets) {
     let totalPrice = 0;
@@ -53,7 +53,7 @@ function TicketsPage() {
   };
   return (
     <div className="TicketsPage">
-      <Link to={`/event/${eventId}`}>
+      <Link to={`/event/${userID}/${eventId}`}>
         <button className="return-bar">
           <img className="icon" src={backIcon} alt="None" />
           <div>Return to event page</div>

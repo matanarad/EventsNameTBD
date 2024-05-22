@@ -14,6 +14,10 @@
   color: white;
   border: none;
   cursor: pointer;
+
+  position: fixed;
+  top: 2vh;
+  left: 5vw;
 }
 
 .event-box {
@@ -31,7 +35,12 @@
 .event-box-image {
   width: 30vw;
   border-radius: 15px;
+  /* padding: 10px; */
 }
+/* 
+.event-box-image-warper {
+  border-radius: 15px;
+} */
 
 .event-box-info {
   display: grid;

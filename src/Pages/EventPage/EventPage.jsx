@@ -7,6 +7,7 @@ import dateIcon from "../../img/calendar.svg";
 import ownerIcon from "../../img/ownerIcon.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import backIcon from "../../img/backIcon.svg";
 
 function EventPage() {
   const [eventImage, setEventImage] = useState("");
@@ -15,7 +16,7 @@ function EventPage() {
   const [eventAddress, setEventAddress] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const { eventId } = useParams();
+  const { eventId, userID } = useParams();
 
   useEffect(() => {
     // ToDo Get From BE
@@ -38,6 +39,12 @@ function EventPage() {
   }, []);
   return (
     <div className="EventPage">
+      <Link to={`/MyEventsPage/${userID}`}>
+        <button className="return-bar">
+          <img className="icon" src={backIcon} alt="None" />
+          {/* <div>Return to event page</div> */}
+        </button>
+      </Link>
       <img className="event-image" src={eventImage} alt="None" />
       <div className="event-title">{eventTitle}</div>
       <div className="event-address-and-date">
@@ -59,7 +66,7 @@ function EventPage() {
           return <p key={index}>{line}</p>;
         })}
       </div>
-      <Link to={`/tickets/${eventId}`}>
+      <Link to={`/tickets/${userID}/${eventId}`}>
         <button className="order-ticket-button">ORDER TICKET</button>
       </Link>
     </div>

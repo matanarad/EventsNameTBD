@@ -1,0 +1,133 @@
+.MyEventsPage {
+  padding: 2vh;
+  padding-bottom: 10vh;
+}
+
+.add-icon {
+  position: fixed;
+  bottom: 2vh; /* Distance from the bottom of the viewport */
+  right: 5vw; /* Distance from the right of the viewport */
+  background-color: #3d4350;
+  background-image: linear-gradient(45deg, #3d4350, #3d4350);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup image */
+.popup-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content */
+.cancel-popup-content {
+  background-color: #3d4350;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 70%;
+}
+
+/* Popup message */
+.popup-message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Popup buttons */
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Confirm button */
+.confirm-button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #c9302c;
+}
+
+/* Cancel button */
+.cancel-button {
+  background-color: #5bc0de;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #31b0d5;
+}
