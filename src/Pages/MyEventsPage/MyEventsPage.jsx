@@ -7,7 +7,6 @@ import EventBox from "./component/EventBox";
 
 function MyEventsPage() {
   const { userID } = useParams();
-  const [clientName, setClientName] = useState("");
   const [eventsList, setEventList] = useState([]);
   const [isQRPopUpActive, setIsQRPopUpActive] = useState({
     status: false,
@@ -20,18 +19,18 @@ function MyEventsPage() {
 
   useEffect(() => {
     //ToDo get from BE
-    setClientName("מתן ארד");
     // {
     //   ID: id
     //   relationship: owner, manager, member
     // }
     setEventList([
-      { ID: 123, relationship: "member" },
       { ID: 124, relationship: "owner" },
       { ID: 125, relationship: "manager" },
       { ID: 1233, relationship: "member" },
+      { ID: 123, relationship: "member" },
     ]);
   }, []);
+
   return (
     <div className="MyEventsPage">
       {isQRPopUpActive.status ? (

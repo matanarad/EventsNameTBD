@@ -7,7 +7,7 @@ import dateIcon from "../../../img/calendar.svg";
 import checkIcon from "../../../img/check.svg";
 import xIcon from "../../../img/red-x.svg";
 import { Link } from "react-router-dom";
-
+import scanIcon from "../../../img/scanIcon.svg";
 function EventBox({
   eventID,
   relationship,
@@ -107,9 +107,31 @@ function EventBox({
               <img className="icon" src={addressIcon} alt="None" />
               <div>{eventAddress}</div>
             </div>
-            <div className="event-box-info">
-              <img className="icon" src={dateIcon} alt="None" />
-              <div>{eventDate}</div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr max-content",
+                alignItems: "center",
+              }}
+            >
+              <div className="event-box-info">
+                <img className="icon" src={dateIcon} alt="None" />
+                <div>{eventDate}</div>
+              </div>
+              {relationship == "owner" || relationship == "manager" ? (
+                <Link to={`/scanPage/${userID}/${eventID}`}>
+                  <img
+                    src={scanIcon}
+                    style={{
+                      height: "5vh",
+                      justifySelf: "right",
+                      padding: "0 1vh 1vh 0 ",
+                    }}
+                  />
+                </Link>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </Link>
