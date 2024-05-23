@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "./App.css";
 import EventPage from "./Pages/EventPage/EventPage";
 import TicketsPage from "./Pages/TicketsPage/TicketsPage";

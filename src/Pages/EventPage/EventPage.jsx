@@ -10,14 +10,23 @@ import { useParams } from "react-router-dom";
 import backIcon from "../../img/backIcon.svg";
 import linkIcon from "../../img/linkIcon.svg";
 // import { shareOnMobile } from "react-mobile-share";
-import { RWebShare } from "react-web-share";
+// import { RWebShare } from "react-web-share";
+import config from "../../config";
 
 function EventPage() {
+  const [eventImage, setEventImage] = useState("");
+  const [eventTitle, setEventTitle] = useState("");
+  const [eventOwner, setEventOwner] = useState({});
+  const [eventAddress, setEventAddress] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
+  const { eventId, userID } = useParams();
+
   const handleShare = async () => {
     const shareData = {
-      title: "React-Mobile-Share",
-      text: "Hey, check out our package react-mobile-share",
-      url: "https://www.npmjs.com/package/react-mobile-share",
+      title: config.shareDataTitle,
+      text: config.shareDataText,
+      url: config.url + `event/${userID}/${eventId}`,
     };
 
     if (navigator.canShare && navigator.canShare(shareData)) {
@@ -31,30 +40,6 @@ function EventPage() {
       alert("Web Share API is not supported in your browser.");
     }
   };
-  // const fallbackShare = () => {
-  //   const url = "https://www.npmjs.com/package/react-mobile-share";
-  //   navigator.clipboard.writeText(url).then(
-  //     () => {
-  //       alert(
-  //         "Web Share API is not supported in your browser. URL copied to clipboard!"
-  //       );
-  //     },
-  //     (err) => {
-  //       console.error("Failed to copy: ", err);
-  //       alert(
-  //         "Web Share API is not supported in your browser and failed to copy URL."
-  //       );
-  //     }
-  //   );
-  // };
-  const [eventImage, setEventImage] = useState("");
-  const [eventTitle, setEventTitle] = useState("");
-  const [eventOwner, setEventOwner] = useState({});
-  const [eventAddress, setEventAddress] = useState("");
-  const [eventDate, setEventDate] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const { eventId, userID } = useParams();
-
   useEffect(() => {
     // ToDo Get From BE
     setEventImage(tempEventImage);
@@ -84,7 +69,7 @@ function EventPage() {
       </Link>
       {/* <Link to={`/MyEventsPage/${userID}`}> */}
       <div>
-        <RWebShare
+        {/* <RWebShare
           data={{
             text: "Like humans, flamingos make friends for life",
             url: "https://on.natgeo.com/2zHaNup",
@@ -93,7 +78,7 @@ function EventPage() {
           onClick={() => console.info("share successful!")}
         >
           <button>Share</button>
-        </RWebShare>
+        </RWebShare> */}
         {/* <div className="warning">
         Warning: Copy to clipboard will NOT work here due to iframe origin
         policy in codesandbox use external window to test that feature
