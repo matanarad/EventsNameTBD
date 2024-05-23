@@ -65,3 +65,43 @@
   transition: background-color 0.3s ease;
   border: 2px solid white;
 }
+
+/* .link {
+  right: 0;
+} */
+
+.link-button {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  font-weight: bold;
+  align-items: center;
+  gap: 3vw;
+  font-size: 1.1rem;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+}
+
+.link-icon {
+  width: 7vw;
+}
+
+button {
+  padding: 0.75rem 1rem;
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.warning {
+  margin-top: 1rem;
+  background: #f7ad00;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1.5rem;
+}

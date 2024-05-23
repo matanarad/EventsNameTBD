@@ -8,8 +8,45 @@ import ownerIcon from "../../img/ownerIcon.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import backIcon from "../../img/backIcon.svg";
+import linkIcon from "../../img/linkIcon.svg";
+// import { shareOnMobile } from "react-mobile-share";
+import { RWebShare } from "react-web-share";
 
 function EventPage() {
+  const handleShare = async () => {
+    const shareData = {
+      title: "React-Mobile-Share",
+      text: "Hey, check out our package react-mobile-share",
+      url: "https://www.npmjs.com/package/react-mobile-share",
+    };
+
+    if (navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+        console.log("Share was successful.");
+      } catch (error) {
+        console.error("Error sharing:", error);
+      }
+    } else {
+      alert("Web Share API is not supported in your browser.");
+    }
+  };
+  // const fallbackShare = () => {
+  //   const url = "https://www.npmjs.com/package/react-mobile-share";
+  //   navigator.clipboard.writeText(url).then(
+  //     () => {
+  //       alert(
+  //         "Web Share API is not supported in your browser. URL copied to clipboard!"
+  //       );
+  //     },
+  //     (err) => {
+  //       console.error("Failed to copy: ", err);
+  //       alert(
+  //         "Web Share API is not supported in your browser and failed to copy URL."
+  //       );
+  //     }
+  //   );
+  // };
   const [eventImage, setEventImage] = useState("");
   const [eventTitle, setEventTitle] = useState("");
   const [eventOwner, setEventOwner] = useState({});
@@ -45,6 +82,38 @@ function EventPage() {
           {/* <div>Return to event page</div> */}
         </button>
       </Link>
+      {/* <Link to={`/MyEventsPage/${userID}`}> */}
+      <div>
+        <RWebShare
+          data={{
+            text: "Like humans, flamingos make friends for life",
+            url: "https://on.natgeo.com/2zHaNup",
+            title: "Share this article on Flamingos",
+          }}
+          onClick={() => console.info("share successful!")}
+        >
+          <button>Share</button>
+        </RWebShare>
+        {/* <div className="warning">
+        Warning: Copy to clipboard will NOT work here due to iframe origin
+        policy in codesandbox use external window to test that feature
+      </div> */}
+      </div>
+      <button
+        className="link-button"
+        onClick={handleShare}
+        // onClick={() => {
+        //   shareOnMobile({
+        //     text: "Hey checkout our package react-mobile-share",
+        //     url: "https://www.npmjs.com/package/react-mobile-share",
+        //     title: "React-Mobile-Share",
+        //   });
+        // }}
+      >
+        <img className="link-icon" src={linkIcon} alt="None" />
+        {/* <div>Return to event page</div> */}
+      </button>
+      {/* </Link> */}
       <img className="event-image" src={eventImage} alt="None" />
       <div className="event-title">{eventTitle}</div>
       <div className="event-address-and-date">
