@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/EventsNameTBD/static/css/main.a982c160.css",
-    "main.js": "/EventsNameTBD/static/js/main.013d0f21.js",
+    "main.js": "/EventsNameTBD/static/js/main.cf7a6213.js",
     "static/media/Temp Event Img.png": "/EventsNameTBD/static/media/Temp Event Img.7ebf729c276f7e3df05c.png",
     "static/media/calendar.svg": "/EventsNameTBD/static/media/calendar.90ca9cfe29e05864b99b1b7b8022d7b2.svg",
     "static/media/scanIcon.svg": "/EventsNameTBD/static/media/scanIcon.fb4b97723dc979d41e968d609c5526f4.svg",
@@ -14,10 +14,10 @@
     "static/media/pointonmap.svg": "/EventsNameTBD/static/media/pointonmap.27103293c20611727c013d77eae54f94.svg",
     "static/media/backIcon.svg": "/EventsNameTBD/static/media/backIcon.d6cebaf4c2f77610bad0116dee6eb2a7.svg",
     "main.a982c160.css.map": "/EventsNameTBD/static/css/main.a982c160.css.map",
-    "main.013d0f21.js.map": "/EventsNameTBD/static/js/main.013d0f21.js.map"
+    "main.cf7a6213.js.map": "/EventsNameTBD/static/js/main.cf7a6213.js.map"
   },
   "entrypoints": [
     "static/css/main.a982c160.css",
-    "static/js/main.013d0f21.js"
+    "static/js/main.cf7a6213.js"
   ]
 }
