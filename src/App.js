@@ -12,10 +12,10 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/event/:userID/:eventId" element={<EventPage />} />
-          <Route path="tickets/:userID/:eventId" element={<TicketsPage />} />
-          <Route path="createEvent/:userID" element={<CreateEvent />} />
-          <Route path="myEventsPage/:userID" element={<MyEventsPage />} />
-          <Route path="scanPage/:userID/:eventId" element={<ScanPage />} />
+          <Route path="/tickets/:userID/:eventId" element={<TicketsPage />} />
+          <Route path="/createEvent/:userID" element={<CreateEvent />} />
+          <Route path="/myEventsPage/:userID" element={<MyEventsPage />} />
+          <Route path="/scanPage/:userID/:eventId" element={<ScanPage />} />
         </Routes>
       </Router>
     </div>

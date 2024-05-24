@@ -33,7 +33,7 @@ function EventBox({
     setEventAddress("Maslak, 34485 Sarıyer/İstanbul, Türkiye");
     setEventDate("Aug 31, 2024 4:00 PM");
     setEventImage(tempEventImage);
-    if (relationship == "owner" || relationship == "manager") {
+    if (relationship === "owner" || relationship === "manager") {
       setExtendedData([
         {
           name: "Matan Arad",
@@ -72,16 +72,16 @@ function EventBox({
     setEventMoney(0);
     setEventAcceptedTickets(0);
     setEventPendingTickets(0);
-  }, []);
+  }, [relationship, eventID]);
   return (
     <div className="EventBox">
       <div className="event-box">
         <img
           className="event-box-image"
           src={
-            relationship == "member" &&
+            relationship === "member" &&
             extendedData[0]?.status &&
-            extendedData[0].status == "Approved"
+            extendedData[0].status === "Approved"
               ? extendedData[0].QR
               : eventImage
           }
@@ -92,7 +92,7 @@ function EventBox({
           onClick={() => {
             if (
               extendedData[0]?.status &&
-              extendedData[0].status == "Approved"
+              extendedData[0].status === "Approved"
             ) {
               setIsQRPopUpActive({
                 status: true,
@@ -118,9 +118,10 @@ function EventBox({
                 <img className="icon" src={dateIcon} alt="None" />
                 <div>{eventDate}</div>
               </div>
-              {relationship == "owner" || relationship == "manager" ? (
+              {relationship === "owner" || relationship === "manager" ? (
                 <Link to={`/scanPage/${userID}/${eventID}`}>
                   <img
+                    alt="None"
                     src={scanIcon}
                     style={{
                       height: "5vh",
@@ -138,7 +139,7 @@ function EventBox({
       </div>
 
       <div className="PendingList">
-        {relationship == "owner" ? (
+        {relationship === "owner" ? (
           <div className="event-box-info stats-grid">
             <div className="stat">
               <div>{eventViews}</div>
@@ -161,12 +162,13 @@ function EventBox({
           ""
         )}
         {extendedData.map((item) => {
-          if (relationship == "owner" || relationship == "manager") {
+          if (relationship === "owner" || relationship === "manager") {
             return (
               <div className="AcceptBox" key={item.transactionId}>
                 <div>{item.name}</div>
                 <div>{item.age}</div>
                 <img
+                  alt="None"
                   src={checkIcon}
                   className="pending-icon"
                   onClick={() => {
@@ -174,6 +176,7 @@ function EventBox({
                   }}
                 />
                 <img
+                  alt="None"
                   src={xIcon}
                   className="pending-icon"
                   onClick={() => {
@@ -187,9 +190,9 @@ function EventBox({
               <div className="status-box" key={item.transactionId}>
                 <div style={{ padding: "1vh" }}>{item.status}</div>
                 <div style={{ padding: "1vh" }}>{item.price}₪</div>
-                {relationship == "member" &&
+                {relationship === "member" &&
                 extendedData[0]?.status &&
-                extendedData[0].status == "Pending" ? (
+                extendedData[0].status === "Pending" ? (
                   <div
                     style={{
                       padding: "1vh",

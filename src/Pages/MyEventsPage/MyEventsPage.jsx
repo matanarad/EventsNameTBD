@@ -97,7 +97,7 @@ function MyEventsPage() {
         ""
       )}
       <Link to={`/createEvent/${userID}`}>
-        <img src={plusIcon} className="add-icon"></img>
+        <img src={plusIcon} className="add-icon" alt="None"></img>
       </Link>
       {eventsList.map((event) => {
         return (
