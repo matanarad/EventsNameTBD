@@ -6,7 +6,7 @@ import addressIcon from "../../../img/pointonmap.svg";
 import dateIcon from "../../../img/calendar.svg";
 import checkIcon from "../../../img/check.svg";
 import xIcon from "../../../img/red-x.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import scanIcon from "../../../img/scanIcon.svg";
 function EventBox({
   eventID,
@@ -14,6 +14,8 @@ function EventBox({
   setIsQRPopUpActive,
   setIsCancelPopUpActive,
 }) {
+  const navigate = useNavigate();
+
   const { userID } = useParams();
   const [eventImage, setEventImage] = useState("");
   const [eventViews, setEventViews] = useState(0);
@@ -119,17 +121,18 @@ function EventBox({
                 <div>{eventDate}</div>
               </div>
               {relationship === "owner" || relationship === "manager" ? (
-                <Link to={`/scanPage/${userID}/${eventID}`}>
-                  <img
-                    alt="None"
-                    src={scanIcon}
-                    style={{
-                      height: "5vh",
-                      justifySelf: "right",
-                      padding: "0 1vh 1vh 0 ",
-                    }}
-                  />
-                </Link>
+                <img
+                  onClick={() => {
+                    navigate(`/scanPage/${userID}/${eventID}`);
+                  }}
+                  alt="None"
+                  src={scanIcon}
+                  style={{
+                    height: "5vh",
+                    justifySelf: "right",
+                    padding: "0 1vh 1vh 0 ",
+                  }}
+                />
               ) : (
                 ""
               )}

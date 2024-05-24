@@ -1,35 +1,3 @@
-// import React, { useState } from "react";
-// import QrReader from "react-qr-scanner";
-
-// const ScanPage = () => {
-//   const [result, setResult] = useState("");
-
-//   const handleScan = (data) => {
-//     if (data) {
-//       setResult(data);
-//     }
-//   };
-
-//   const handleError = (err) => {
-//     console.error(err);
-//   };
-
-//   return (
-//     <div style={{ width: "80vw" }}>
-//       <div style={{ width: "100%", height: "auto" }}>
-//         <QrReader
-//           delay={300}
-//           onError={handleError}
-//           onScan={handleScan}
-//           style={{ width: "100%", height: "100%" }}
-//         />
-//       </div>
-//       <p>{result}</p>
-//     </div>
-//   );
-// };
-
-// export default ScanPage;
 import { useState } from "react";
 import "./ScanPage.css";
 import { Link } from "react-router-dom";

@@ -1,5 +1,6 @@
 .TicketsPage {
   padding: 2vh;
+  padding-bottom: 10vh;
 }
 
 .return-bar {
@@ -57,6 +58,12 @@
   background-color: #3d4350;
   border-radius: 15px;
 }
+.ticket-holder-details {
+  margin-top: 3vh;
+  padding-bottom: 2vh;
+  background-color: #3d4350;
+  border-radius: 15px;
+}
 
 .tickets-title {
   font-weight: bold;
@@ -64,4 +71,45 @@
   padding-left: 5vw;
   font-size: 1.2rem;
   padding-top: 1vh;
+}
+
+.ticket-cut {
+  background-color: #3d4350;
+  border-radius: 10px;
+  height: 2.5vh;
+  left: 2vw;
+  position: absolute;
+  top: -2.5vh;
+  width: max-content;
+  transform: translateY(8px);
+  font-size: 0.85rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.ticket-err-cut {
+  background-color: #3d4350;
+  border-radius: 10px;
+  height: 2.5vh;
+  right: 2vw;
+  position: absolute;
+  top: -2.5vh;
+  width: max-content;
+  transform: translateY(8px);
+  font-size: 0.85rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  color: red;
+  font-weight: bold;
+}
+
+.ticket-input-container {
+  height: 6vh;
+  position: relative;
+  width: 100%;
+  margin-top: 2.5vh;
+}
+
+.ticket-question {
+  margin: 3vw;
 }
