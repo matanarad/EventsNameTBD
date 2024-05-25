@@ -56,8 +56,7 @@ input {
   color: #eee;
   font-family: sans-serif;
   font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .file-input {
