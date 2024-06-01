@@ -6,7 +6,6 @@ export async function createNewEvent(data) {
   //   try {
   // Create FormData object
   const formData = new FormData();
-
   formData.append("managers", [data.managers]);
   formData.append("owner_id", data.owner_id);
   formData.append("public", data.public);
