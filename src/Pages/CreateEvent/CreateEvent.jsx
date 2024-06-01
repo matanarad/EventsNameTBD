@@ -3,7 +3,7 @@ import "./CreateEvent.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import backIcon from "../../img/backIcon.svg";
-
+import { createNewEvent } from "../../api";
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import config from "../../config";
@@ -28,6 +28,10 @@ const questionsList = [
     name: "Event Address",
     type: "text",
   },
+  {
+    name: "Event Minium Age",
+    type: "number",
+  },
 ];
 
 function CreateEvent() {
@@ -46,8 +50,35 @@ function CreateEvent() {
     name: "phoneNumbers",
   });
 
-  const onSubmit = (data) => {
+  function formatDateTime(date, time) {
+    // Split the date and time strings into their components
+    const [year, month, day] = date.split("-");
+    const [hours, minutes] = time.split(":");
+
+    const dateTime = new Date(year, month - 1, day, hours, minutes);
+
+    // const formattedDate = dateTime.toLocaleDateString("en-CA"); // e.g., "YYYY-MM-DD"
+    // const formattedTime = dateTime.toTimeString().split(" ")[0]; // e.g., "HH:MM:SS"
+
+    // const formattedDateTime = `${formattedDate} ${formattedTime}`;
+
+    return dateTime;
+  }
+
+  const onSubmit = async (data) => {
     console.log(data);
+    const data_1 = {
+      event_date: formatDateTime(data["Event Date"], data["Event Start Time"]),
+      title: data["Event Title"],
+      description: data["Event Description"],
+      location: data["Event Address"],
+      photo: data["image_file"][0],
+      owner_id: 1,
+      managers: data["phoneNumbers"],
+      min_age: parseInt(data["Event Minium Age"]),
+      public: false,
+    };
+    const response = await createNewEvent(data_1);
   };
 
   const handleFileChange = (e) => {
