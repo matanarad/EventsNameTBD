@@ -69,6 +69,7 @@ function CreateEvent() {
     console.log(data);
     const data_1 = {
       event_date: formatDateTime(data["Event Date"], data["Event Start Time"]),
+
       title: data["Event Title"],
       description: data["Event Description"],
       location: data["Event Address"],
